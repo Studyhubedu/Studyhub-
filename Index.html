@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9f5ff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007acc;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+
+        #side-menu {
+            background-color: #007acc;
+            color: white;
+            height: 100%;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            transition: 0.3s;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        #side-menu nav {
+            padding: 20px;
+        }
+
+        #side-menu nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #side-menu nav ul li {
+            margin-bottom: 10px;
+        }
+
+        #side-menu nav ul li a {
+            color: white;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        #side-menu nav ul li a:hover {
+            background-color: #005b82;
+        }
+
+        #side-menu nav ul ul {
+            display: none;
+            padding-left: 20px;
+        }
+
+        #side-menu nav ul ul li a {
+            padding-left: 20px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 60px 20px;
+            background: #007acc; /* Changed background color */
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0.5em 0;
+            position: relative;
+            animation: slideIn 3s ease-in-out forwards; /* Animation setup */
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards; /* Fade-in animation */
+            animation-delay: 3s; /* Delay the fade-in to start after the heading animation */
+        }
+
+        .content {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .content h3 {
+            margin-top: 0;
+            color: #007acc;
+        }
+
+        .content hr {
+            width: 100%;
+            margin: 20px 0;
+            border: 0;
+            border-top: 2px solid #007acc;
+        }
+
+        .content ul {
+            padding-left: 20px;
+        }
+
+        .content ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .content ul li a {
+            text-decoration: none;
+            color: #007acc;
+            transition: color 0.3s;
+        }
+
+        .content ul li a:hover {
+            color: #005b82;
+        }
+
+        footer {
+            background-color: #007acc;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>StudyHub</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+    </header>
+
+    <div id="side-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" onclick="toggleSubmenu(event, 'class9')">Class 9th Study Material</a>
+                    <ul id="class9">
+                        <li><a href="#" class="back" onclick="toggleSubmenu(event, 'class9')">← Back</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-ninth-maths-notes.html">Maths</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-9th-physics-notes.html">Physics</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-ninth-chemistry-notes.html">Chemistry</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-ninth-biology-notes.html">Biology</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="toggleSubmenu(event, 'class10')">Class 10th Study Material</a>
+                    <ul id="class10">
+                        <li><a href="#" class="back" onclick="toggleSubmenu(event, 'class10')">← Back</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-tenth-maths-notes.html">Maths</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-tenth-physics-notes.html">Physics</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-tenth-chemistry-notes.html">Chemistry</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-tenth-biology-notes.html">Biology</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="toggleSubmenu(event, 'class11')">Class 11th Study Material</a>
+                    <ul id="class11">
+                        <li><a href="#" class="back" onclick="toggleSubmenu(event, 'class11')">← Back</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-eleventh-chemistry-notes_19.html">Maths</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-eleventh-physics-notes.html">Physics</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-eleventh-chemistry-notes.html">Chemistry</a></li>
+                        <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-eleventh-biology-notes.html">Biology</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://studyhubeducation.blogspot.com/?m=1" target="_blank">Cheat Sheet</a>
+                </li>
+                <li>
+                    <a href="https://maxlearnhub.blogspot.com/" target="_blank">Informative Books</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <div class="hero">
+            <h2>Welcome to StudyHub</h2>
+            <p>Your one-stop destination for study notes.</p>
+        </div>
+        <section class="content">
+            <h3>Practice Questions</h3>
+            <hr>
+            <ul>
+                <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-ninth-practice-sheets.html">Class 9th Practice Questions</a></li>
+                <li><a href="https://practicennoteshub.blogspot.com/2024/07/class.html">Class 10th Practice Questions</a></li>
+                <li><a href="https://practicennoteshub.blogspot.com/2024/07/class-eleventh-practice-sheets.html">Class 11th Practice Questions</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>StudyHub &copy; 2024</p>
+        <p>Website made by MAX⚡</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var sideMenu = document.getElementById("side-menu");
+            if (sideMenu.style.left === "-250px") {
+                sideMenu.style.left = "0";
+                document.addEventListener('click', closeMenuOnClickOutside);
+            } else {
+                sideMenu.style.left = "-250px";
+                document.removeEventListener('click', closeMenuOnClickOutside);
+            }
+        }
+
+        function closeMenuOnClickOutside(event) {
+            var sideMenu = document.getElementById("side-menu");
+            if (!sideMenu.contains(event.target) && !event.target.matches('.menu-toggle')) {
+                sideMenu.style.left = "-250px";
+                document.removeEventListener('click', closeMenuOnClickOutside);
+            }
+        }
+
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            var submenu = document.getElementById(submenuId);
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none";
+            } else {
+                submenu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
